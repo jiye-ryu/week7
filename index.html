@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>제논의 역설</title>
+	<style type="text/css">
+		body, div {margin: 0; padding: 0;}
+		header{width: 1200px; margin: auto;}
+		h1 {font-size: 200px; line-height: 1; font-family: 'Poppins', sans-serif; font-weight: 500;}
+		#container {width: 1200px; height: 500px; margin: auto; padding: 0; display: inline-flex; flex-wrap: wrap;}
+		#road {width: 5000px; height: 150px; margin: 0; padding: 0; position: relative; top: 400px; z-index: 1; display: flex; border-style: solid; border-color: black; border-bottom: none; border-right: none; border-left: none;}
+		#man{width: 50px; height: 50px; background-color: blue; position: relative; top: 550px; left: 0; z-index: 10; display: flex;}
+		#turtle {width: 50px; height: 50px; background-color: yellowgreen; position: relative; top: 550px; display: flex;}
+
+</style>
+</head>
+<body>
+	<header>
+			<h1>Zeno's <br>Paradoxes</h1>
+			<div id="container">
+				<div id="man"></div>
+				<div id="turtle"></div>
+				<div id="road">길</div>
+				<audio src="sound.m4a" id="sound"></audio>
+			</div>
+	</header>
+
+	<script type="text/javascript">
+		//캐릭터 움직이기
+		var a = 1;
+		sumA = 0;
+		sumB = 18;
+
+		//거북이
+		var b = 10;
+		var c = 500;
+
+		man.style.left = a + "px";
+		turtle.style.left = c + "px";
+		window.onkeydown = function(e){
+			if(e.keyCode == 39){
+				a = a + 1;
+				sumA++;
+				sumB--;
+				man.style.left = a*25 + "px";
+				console.log(sumA,sumB);
+				road.style.left = -(a*25) + "px";
+				b = b - 1;
+				turtle.style.left = c -(a*25) + "px";
+
+
+				
+			}
+			
+
+			if(sumA == sumB){
+				console.log("captured!");
+				sound.play();
+				turtle.style.left = c + 50 + "px";
+				c = c + 100 + "px";
+				sumB = 31;
+				
+			}
+		}
+		
+		
+		
+	
+	</script>
+
+</body>
+</html>
